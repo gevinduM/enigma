@@ -52,7 +52,7 @@ public class enigma extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -61,7 +61,7 @@ public class enigma extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextArea6 = new javax.swing.JTextArea();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -228,7 +228,19 @@ public class enigma extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Monoalphabetic cipher", jPanel2);
-        jTabbedPane1.addTab("Vigenere chpier", jTabbedPane2);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 818, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 403, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Vigenere cipier", jPanel5);
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel7.setText("Chpier Text");
@@ -293,7 +305,19 @@ public class enigma extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Brute force", jPanel3);
-        jTabbedPane1.addTab("History", jTabbedPane3);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 818, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 403, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("History", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -313,16 +337,51 @@ public class enigma extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        Brute_force br = new Brute_force();
+
+        try {
+
+            String chiper = jTextArea5.getText();
+
+            String display = "";
+
+            ArrayList<String> result = br.codeBreaker(chiper);
+
+            jTextArea6.setText("");
+
+            for (String result1 : result) {
+
+                display += result1 +"\n";
+
+            }
+
+            jTextArea6.setText(display);
+
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        try {
+
+            String plainText = jTextArea3.getText();
+
+            Mono_cipher enigma = new Mono_cipher();
+
+            jTextArea4.setText(enigma.genetate(plainText));
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            
+
         try {
-            
-          
-            
+
             jLabel4.setText("");
             String plainText = jTextArea1.getText();
             int shifts = Integer.parseInt(jTextField1.getText());
@@ -330,57 +389,17 @@ public class enigma extends javax.swing.JFrame {
             shift_chpier enigma = new shift_chpier();
 
             jTextArea2.setText(enigma.shift(plainText, shifts));
-            
+
         } catch (Exception e) {
-            
+
             jLabel4.setText("Error occurred, please try again!");
         }
-       
-                    
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        try {
-            
-            String plainText = jTextArea3.getText();
-            
-            Mono_cipher enigma = new Mono_cipher();
-            
-            jTextArea4.setText(enigma.genetate(plainText));
-            
-            
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
-        Brute_force br = new Brute_force();
-
-        try {
-
-            String chiper = jTextArea5.getText();
-            
-            String display = "";
-
-            ArrayList<String> result = br.codeBreaker(chiper);
-            
-            jTextArea6.setText("");
-            
-            for (String result1 : result) {
-                
-                display += result1 +"\n";
-                
-            }
-
-            jTextArea6.setText(display);
-
-            
-        } catch (Exception e) {
-        }
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -433,6 +452,8 @@ public class enigma extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -440,8 +461,6 @@ public class enigma extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
