@@ -11,7 +11,7 @@ import java.util.*;
  *
  * @author Gevindu
  */
-public class Vigenere_cipher {
+public class Mono_cipher {
     
     ArrayList<String> list = new ArrayList<String>() {{
         add("A");add("B");add("C");add("D");add("E");add("F");add("G");add("H");add("I");add("J");add("K");add("L");add("M");add("N");add("O");add("P");add("Q");add("R");add("S");add("T");add("U");add("V");

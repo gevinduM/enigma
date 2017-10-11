@@ -6,7 +6,7 @@
 package interfaces;
 
 import crypto.classes.Brute_force;
-import crypto.classes.Vigenere_cipher;
+import crypto.classes.Mono_cipher;
 import crypto.classes.shift_chpier;
 import java.util.ArrayList;
 
@@ -341,7 +341,7 @@ public class enigma extends javax.swing.JFrame {
             
             String plainText = jTextArea3.getText();
             
-            Vigenere_cipher enigma = new Vigenere_cipher();
+            Mono_cipher enigma = new Mono_cipher();
             
             jTextArea4.setText(enigma.genetate(plainText));
             
